@@ -18,24 +18,58 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       min-height: 100vh;
-      background: linear-gradient(
-        135deg,
-        #020617,
-        #0a2a5e,
-        #0077b6,
-        #00b4d8
-      );
+
+      background:
+        radial-gradient(
+          circle at top,
+          rgba(2, 100, 233, 0.25),
+          transparent 35%
+        ),
+        linear-gradient(
+          135deg,
+          #020617,
+          #0a2a5e,
+          #0077b6,
+          #00b4d8
+        );
+
+      background-attachment: fixed;
+
       font-family: "Poppins", sans-serif;
       color: white;
     }
 
+    /* CABECERA */
+
+    .header {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 18px;
+
+      padding: 35px 20px 5px;
+    }
+
+    .logo {
+      width: 75px;
+      height: 75px;
+
+      object-fit: contain;
+
+      filter:
+        drop-shadow(0 0 10px rgba(98, 217, 255, 0.25));
+    }
+
     h1 {
-      padding-top: 30px;
-      text-align: center;
       font-size: 3rem;
-      font-weight: bold;
+      font-weight: 700;
+      line-height: 1;
     }
 
     .ciber {
@@ -46,13 +80,36 @@
       color: #62d9ff;
     }
 
+    .subtitle {
+      max-width: 700px;
+      margin: 15px auto 0;
+      padding: 0 20px;
+
+      text-align: center;
+
+      font-size: 1rem;
+      font-weight: 400;
+
+      color: rgba(255, 255, 255, 0.82);
+    }
+
+    /* CHATBOT */
+
     .chat-wrapper {
       width: min(900px, calc(100% - 32px));
       height: 700px;
-      margin: 30px auto;
+
+      margin: 35px auto 50px;
+
       border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+
+      border: 1px solid rgba(255, 255, 255, 0.12);
+
+      box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.35),
+        0 0 30px rgba(0, 119, 182, 0.12);
+
       background: #061426;
     }
 
@@ -61,29 +118,355 @@
       height: 100%;
     }
 
-    @media (max-width: 700px) {
+    /* INFORMACIÓN */
+
+    .info-section {
+      width: min(1050px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 30px 0 60px;
+    }
+
+    .info-title {
+      text-align: center;
+
+      font-size: 2rem;
+      font-weight: 700;
+
+      margin-bottom: 12px;
+    }
+
+    .info-intro {
+      max-width: 750px;
+
+      margin: 0 auto 35px;
+
+      text-align: center;
+
+      color: rgba(255, 255, 255, 0.82);
+
+      font-size: 1rem;
+      line-height: 1.7;
+    }
+
+    .cards {
+      display: grid;
+
+      grid-template-columns:
+        repeat(3, 1fr);
+
+      gap: 20px;
+    }
+
+    .card {
+      padding: 26px;
+
+      border-radius: 18px;
+
+      background:
+        rgba(3, 20, 45, 0.72);
+
+      border:
+        1px solid rgba(98, 217, 255, 0.15);
+
+      backdrop-filter: blur(10px);
+
+      box-shadow:
+        0 15px 35px rgba(0, 0, 0, 0.20);
+
+      transition:
+        transform 0.25s ease,
+        border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+
+      border-color:
+        rgba(98, 217, 255, 0.45);
+    }
+
+    .card-icon {
+      font-size: 2rem;
+      margin-bottom: 15px;
+    }
+
+    .card h3 {
+      margin-bottom: 10px;
+
+      color: #62d9ff;
+
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .card p {
+      color:
+        rgba(255, 255, 255, 0.82);
+
+      line-height: 1.65;
+
+      font-size: 0.95rem;
+    }
+
+    /* AVISO */
+
+    .demo-notice {
+      max-width: 850px;
+
+      margin: 40px auto 0;
+
+      padding: 22px 25px;
+
+      text-align: center;
+
+      border-radius: 16px;
+
+      background:
+        rgba(2, 6, 23, 0.65);
+
+      border:
+        1px solid rgba(255, 255, 255, 0.12);
+
+      color:
+        rgba(255, 255, 255, 0.78);
+
+      line-height: 1.6;
+
+      font-size: 0.9rem;
+    }
+
+    /* FOOTER */
+
+    footer {
+      padding: 25px;
+
+      text-align: center;
+
+      color:
+        rgba(255, 255, 255, 0.65);
+
+      font-size: 0.85rem;
+
+      background:
+        rgba(2, 6, 23, 0.35);
+    }
+
+    footer a {
+      color: #62d9ff;
+
+      text-decoration: none;
+    }
+
+    footer a:hover {
+      text-decoration: underline;
+    }
+
+    /* RESPONSIVE */
+
+    @media (max-width: 800px) {
+
+      .header {
+        gap: 12px;
+      }
+
+      .logo {
+        width: 58px;
+        height: 58px;
+      }
+
       h1 {
         font-size: 2.2rem;
       }
 
       .chat-wrapper {
         width: calc(100% - 16px);
-        height: 80vh;
-        margin: 20px auto;
+
+        height: 78vh;
+
+        min-height: 600px;
+
+        margin:
+          25px auto 40px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .info-title {
+        font-size: 1.7rem;
       }
     }
+
+    @media (max-width: 450px) {
+
+      .logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      h1 {
+        font-size: 1.9rem;
+      }
+
+      .subtitle {
+        font-size: 0.9rem;
+      }
+    }
+
   </style>
 </head>
 
 <body>
 
-  <h1>
-    <span class="ciber">Ciber</span><span class="guardian">Guardian</span>
-  </h1>
+  <!-- CABECERA -->
 
-  <div class="chat-wrapper">
-    <div id="voiceflow-chat"></div>
-  </div>
+  <header>
+
+    <div class="header">
+
+      <img
+        src="LogoCiberguardian.png"
+        alt="Logo de CiberGuardian"
+        class="logo"
+      >
+
+      <h1>
+        <span class="ciber">Ciber</span><span class="guardian">Guardian</span>
+      </h1>
+
+    </div>
+
+    <p class="subtitle">
+      Orientación clara para reconocer riesgos digitales,
+      prevenir estafas y mejorar tus hábitos de seguridad.
+    </p>
+
+  </header>
+
+
+  <!-- CHATBOT -->
+
+  <main>
+
+    <div class="chat-wrapper">
+      <div id="voiceflow-chat"></div>
+    </div>
+
+
+    <!-- INFORMACIÓN -->
+
+    <section class="info-section">
+
+      <h2 class="info-title">
+        Conocé CiberGuardian
+      </h2>
+
+      <p class="info-intro">
+        CiberGuardian es un asistente educativo de ciberseguridad
+        diseñado para ayudar a reconocer riesgos digitales,
+        comprender posibles amenazas y adoptar hábitos más seguros
+        al utilizar Internet.
+      </p>
+
+
+      <div class="cards">
+
+        <article class="card">
+
+          <div class="card-icon">
+            🛡️
+          </div>
+
+          <h3>
+            ¿Qué es?
+          </h3>
+
+          <p>
+            Es un asistente conversacional que brinda orientación
+            preventiva sobre phishing, estafas digitales,
+            enlaces sospechosos, seguridad de cuentas,
+            privacidad y ciberhigiene.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            🔎
+          </div>
+
+          <h3>
+            ¿Cómo funciona?
+          </h3>
+
+          <p>
+            Podés realizar una consulta o contar una situación
+            sospechosa. CiberGuardian analiza la información,
+            identifica posibles señales de riesgo y ofrece
+            recomendaciones claras para actuar de forma segura.
+          </p>
+
+        </article>
+
+
+        <article class="card">
+
+          <div class="card-icon">
+            🔐
+          </div>
+
+          <h3>
+            Aprendé a protegerte
+          </h3>
+
+          <p>
+            Además de analizar situaciones concretas,
+            CiberGuardian explica conceptos de ciberseguridad
+            y brinda consejos para proteger tus cuentas,
+            contraseñas y datos personales.
+          </p>
+
+        </article>
+
+      </div>
+
+
+      <div class="demo-notice">
+
+        <strong>Demo educativa.</strong>
+
+        CiberGuardian utiliza inteligencia artificial y puede
+        cometer errores. No compartas contraseñas, códigos de
+        verificación, datos bancarios ni otra información sensible.
+        El acceso a la herramienta puede encontrarse limitado
+        temporalmente.
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    CiberGuardian · La seguridad digital es primordial.
+
+    <br>
+
+    <a href="privacidad.html">
+      Aviso de privacidad
+    </a>
+
+  </footer>
+
+
+  <!-- VOICEFLOW -->
 
   <script type="text/javascript">
   (function(d, t) {
@@ -104,6 +487,6 @@
       v.src = 'https://cdn.voiceflow.com/widget-next/bundle.mjs'; v.type = 'text/javascript'; s.parentNode.insertBefore(v, s);
   })(document, 'script');
 </script>
-
+  
 </body>
 </html>
